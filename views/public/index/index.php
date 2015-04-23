@@ -65,6 +65,17 @@ function enablePollAjaxForm(url){
 				
 			e.preventDefault();
         });
+	
+		jQuery('#poll-close').click(function(){
+			jQuery('#poll').slideUp();
+			
+			var today = new Date();
+			var expireDate = new Date(today);
+			expireDate.setDate(today.getDate() + 5); // 5 days
+			
+			// sets the cookie to 0
+			document.cookie = 'survey_completed=0; expires=' + expireDate.toGMTString() + '; path=/';
+		});
     });
 }
 
@@ -117,14 +128,17 @@ enablePollAjaxForm('<?php echo url($pollPath.'/submit'); ?>');
 #poll-submit:hover{
 	color: #FFF;
 }
-@media screen and (min-width: 768px){
-
+#poll-close{
+	display: block;
+	float: right;
+	cursor: pointer;
 }
 </style>
 <div id="poll">
 
 	<div id="poll-content">
 	
+		<span id="poll-close" title="Dit maal verbergen">Sluiten</span>
 		<h4 id="poll-instructions">
 			Door deze twee vragen te beantwoorden, helpt u Verhalenbank.nl te verbeteren:
 		</h4>
@@ -164,7 +178,6 @@ enablePollAjaxForm('<?php echo url($pollPath.'/submit'); ?>');
 				<input type="submit" id="poll-submit" name="submit" value="Verzend">
 			
 			</form>
-	
 	</div>
 	
 	<div id="poll-thankyou" style="display:none">Dank voor uw hulp.</div>
