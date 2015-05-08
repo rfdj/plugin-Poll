@@ -46,7 +46,7 @@ function enablePollAjaxForm(url){
 			console.log(value);
 			<!--fields can't be blank-->
 			var q_usage = jQuery('#poll-usage').val();
-			var q_location = jQuery('#poll-location').val();
+			var q_location = jQuery('input[name="poll-location"]:checked').val();
 			
 			
 			if (q_usage !== '' && q_location !== '') {
