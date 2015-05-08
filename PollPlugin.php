@@ -107,7 +107,7 @@ class PollPlugin extends Omeka_Plugin_AbstractPlugin
 	    $indexResource = new Zend_Acl_Resource('Poll_Index');
         $acl->add($indexResource);
     
-        $acl->allow(array('super'), 'Poll_Index');
+        $acl->allow(null, 'Poll_Index');
 
 		
         

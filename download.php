@@ -1,5 +1,5 @@
 <?php
 
-echo 'doenwloadn';
+echo 'downloaden';
 
 ?>
